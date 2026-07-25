@@ -270,16 +270,20 @@ document.querySelectorAll(".semester-card").forEach(card => {
 });
 
 // ---------- Console ----------
+function openResource(subject, resource) {
 
-console.log("BCA Question Paper Portal Loaded Successfully");
-function openResource(subject, resource){
+    if (subject === "Digital Computer Organization" && resource === "Notes") {
 
-    alert(
-        subject +
-        "\n\n" +
-        resource +
-        "\n\nThis will open the selected resource."
-    );
+        window.open(
+            "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
+            "_blank"
+        );
+
+    } else {
+
+        alert(resource + " is not available yet.");
+
+    }
 
 }
 
