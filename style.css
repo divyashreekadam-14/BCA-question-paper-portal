@@ -519,3 +519,46 @@ padding:35px;
     transform:scale(1.03);
 
 }
+/* ===========================
+   NOTES PAGE
+=========================== */
+
+.notes-container{
+    max-width:800px;
+    margin:80px auto;
+    background:#10263d;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.notes-container h1{
+    color:#00d4ff;
+    margin-bottom:15px;
+    font-size:36px;
+}
+
+.notes-subtitle{
+    color:#d6e8ff;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.notes-container a{
+    display:block;
+    background:#00b4ff;
+    color:#fff;
+    text-decoration:none;
+    padding:16px;
+    margin:20px auto;
+    width:80%;
+    border-radius:12px;
+    font-size:20px;
+    transition:.3s;
+}
+
+.notes-container a:hover{
+    background:#008cff;
+    transform:translateY(-3px);
+}

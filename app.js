@@ -270,23 +270,44 @@ document.querySelectorAll(".semester-card").forEach(card => {
 });
 
 // ---------- Console ----------
+
 function openResource(subject, resource) {
 
-    if (subject === "Digital Computer Organization" && resource === "Notes") {
+    if (resource === "Notes") {
 
-        window.open(
-            "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
-            "_blank"
-        );
+        if (subject === "Digital Computer Organization") {
 
-    } else {
+            window.open(
+                "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
+                "_blank"
+            );
 
-        alert(resource + " is not available yet.");
+        }
+
+        else if (subject === "Programming in C++") {
+
+    window.open(
+        "assets/programming-in-c++/notes.html",
+        "_blank"
+    );
+
+}
+
+        else {
+
+            alert("Notes will be uploaded soon.");
+
+        }
+
+    }
+
+    else {
+
+        alert(resource + " will be uploaded soon.");
 
     }
 
 }
-
 function getAccess(subject){
 
     alert(
