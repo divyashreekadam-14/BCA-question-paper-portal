@@ -233,56 +233,61 @@ function openResource(subject, resource, semester) {
 
     // ---------- SYLLABUS ----------
 
-    if (resource === "Syllabus") {
+   // ---------- SYLLABUS ----------
 
+if (resource === "Syllabus") {
 
-        // Semester 3 syllabus
+    // Semester 1
+    if (semester === "1") {
 
-        if (semester === "3") {
-
-            window.open(
-
-                "assets/notes/semester3/semester3-syllabus.pdf",
-
-                "_blank"
-
-            );
-
-            return;
-
-        }
-
-
-        // Semester 4 syllabus
-
-        if (semester === "4") {
-
-            window.open(
-
-                "assets/notes/semester4/semester4-syllabus.pdf",
-
-                "_blank"
-
-            );
-
-            return;
-
-        }
-
-
-        // Syllabus not available
-
-        alert(
-
-            "Syllabus is not available yet for Semester " +
-
-            semester
-
+        window.open(
+            "assets/notes/semester1/semester1-syllabus.pdf",
+            "_blank"
         );
 
         return;
-
     }
+
+    // Semester 2
+    if (semester === "2") {
+
+        window.open(
+            "assets/notes/semester2/semester2-syllabus.pdf",
+            "_blank"
+        );
+
+        return;
+    }
+
+    // Semester 3
+    if (semester === "3") {
+
+        window.open(
+            "assets/notes/semester3/semester3-syllabus.pdf",
+            "_blank"
+        );
+
+        return;
+    }
+
+    // Semester 4
+    if (semester === "4") {
+
+        window.open(
+            "assets/notes/semester4/semester4-syllabus.pdf",
+            "_blank"
+        );
+
+        return;
+    }
+
+    // Semester 5 & 6
+    alert(
+        "Syllabus is not available yet for Semester " + semester
+    );
+
+    return;
+}
 
 
     // ---------- NOTES ----------
@@ -330,6 +335,25 @@ function openResource(subject, resource, semester) {
             return;
 
         }
+        if (
+
+    semester === "2" &&
+
+    subject === "Operating System"
+
+) {
+
+    window.open(
+
+        "assets/notes/semester2/notes.html",
+
+        "_blank"
+
+    );
+
+    return;
+
+}
 
 
         alert("Notes will be uploaded soon.");
