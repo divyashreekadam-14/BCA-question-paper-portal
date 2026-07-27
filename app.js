@@ -3,17 +3,21 @@
 // app.js
 // ================================
 
+
 // ---------- Get Started Button ----------
 
 const startBtn = document.getElementById("startBtn");
 
 if (startBtn) {
     startBtn.addEventListener("click", () => {
+
         document.getElementById("semester").scrollIntoView({
             behavior: "smooth"
         });
+
     });
 }
+
 
 // ---------- Subject Data ----------
 
@@ -77,6 +81,7 @@ const semesterSubjects = {
 
 };
 
+
 // ---------- Question Paper Years ----------
 
 const paperYears = [
@@ -87,6 +92,7 @@ const paperYears = [
 
 ];
 
+
 // ---------- Semester Click ----------
 
 const semesterCards = document.querySelectorAll(".semester-card");
@@ -94,6 +100,7 @@ const semesterCards = document.querySelectorAll(".semester-card");
 const subjectContainer = document.getElementById("subjectContainer");
 
 const paperContainer = document.getElementById("paperContainer");
+
 
 semesterCards.forEach(card => {
 
@@ -107,72 +114,77 @@ semesterCards.forEach(card => {
 
 });
 
-// ---------- Load Subjects ----------
 
 // ---------- Load Subjects ----------
 
 function loadSubjects(semester) {
 
     subjectContainer.innerHTML = "";
+
     paperContainer.innerHTML = "<p>Select Subject First</p>";
+
 
     semesterSubjects[semester].forEach(subject => {
 
         const div = document.createElement("div");
 
         div.className = "subject-card";
+
         div.innerHTML = `<h3>${subject}</h3>`;
+
 
         div.addEventListener("click", () => {
 
-            loadQuestionPapers(subject);
+            loadQuestionPapers(subject, semester);
 
-            // Automatically move to Subject Resources
+
             setTimeout(() => {
 
                 document.getElementById("papers").scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
 
             }, 100);
 
         });
 
+
         subjectContainer.appendChild(div);
 
     });
 
-    // Automatically move to Subjects section
+
     setTimeout(() => {
 
         document.getElementById("subjects").scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
         });
 
     }, 100);
 
 }
 
-    
 
-        
+// ---------- Load Subject Resources ----------
 
-    
-    
-        
-
-// ---------- Load Papers ----------
-
-function loadQuestionPapers(subject) {
+function loadQuestionPapers(subject, semester) {
 
 
     paperContainer.innerHTML = "";
 
+
     const paper = document.createElement("div");
 
     paper.className = "paper-card";
+
 
     paper.innerHTML = `
 
@@ -180,76 +192,228 @@ function loadQuestionPapers(subject) {
 
         <br>
 
-        <button onclick="openResource('${subject}','Syllabus')">
+        <button onclick="openResource('${subject}', 'Syllabus', '${semester}')">
             Syllabus
         </button>
 
-        <button onclick="openResource('${subject}','Notes')">
+
+        <button onclick="openResource('${subject}', 'Notes', '${semester}')">
             Notes
         </button>
 
-        <button onclick="openResource('${subject}','Question Papers')">
+
+        <button onclick="openResource('${subject}', 'Question Papers', '${semester}')">
             Previous Papers
         </button>
 
-        <button onclick="openResource('${subject}','Important Questions')">
+
+        <button onclick="openResource('${subject}', 'Important Questions', '${semester}')">
             Important Questions
         </button>
 
-        
 
-        <button onclick="openResource('${subject}','Videos')">
+        <button onclick="openResource('${subject}', 'Videos', '${semester}')">
             Video Lectures
         </button>
 
         <br><br>
 
-        
-
     `;
+
 
     paperContainer.appendChild(paper);
 
-}  
-
-// ---------- View PDF ----------
-
-function DownloadPDF(subject, year) {
-
-    alert(
-
-        "Open PDF for:\n\n" +
-
-        subject +
-
-        "\n" +
-
-        year +
-
-        "\n\nLater this will open the actual PDF."
-
-    );
-
 }
 
-// ---------- Download PDF ----------
+
+// ---------- Open Resources ----------
+
+function openResource(subject, resource, semester) {
 
 
+    // ---------- SYLLABUS ----------
+
+    if (resource === "Syllabus") {
 
 
+        // Semester 3 syllabus
+
+        if (semester === "3") {
+
+            window.open(
+
+                "assets/notes/semester3/semester3-syllabus.pdf",
+
+                "_blank"
+
+            );
+
+            return;
+
+        }
+
+
+        // Semester 4 syllabus
+
+        if (semester === "4") {
+
+            window.open(
+
+                "assets/notes/semester4/semester4-syllabus.pdf",
+
+                "_blank"
+
+            );
+
+            return;
+
+        }
+
+
+        // Syllabus not available
+
+        alert(
+
+            "Syllabus is not available yet for Semester " +
+
+            semester
+
+        );
+
+        return;
+
+    }
+
+
+    // ---------- NOTES ----------
+
+    if (resource === "Notes") {
+
+
+        if (
+
+            semester === "1" &&
+
+            subject === "Digital Computer Organization"
+
+        ) {
+
+            window.open(
+
+                "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
+
+                "_blank"
+
+            );
+
+            return;
+
+        }
+
+
+        if (
+
+            semester === "1" &&
+
+            subject === "Programming in C++"
+
+        ) {
+
+            window.open(
+
+                "assets/programming-in-c++/notes.html",
+
+                "_blank"
+
+            );
+
+            return;
+
+        }
+
+
+        alert("Notes will be uploaded soon.");
+
+        return;
+
+    }
+
+
+    // ---------- PREVIOUS PAPERS ----------
+
+    if (resource === "Question Papers") {
+
+        alert(
+
+            "Previous papers for " +
+
+            subject +
+
+            " will be uploaded soon."
+
+        );
+
+        return;
+
+    }
+
+
+    // ---------- IMPORTANT QUESTIONS ----------
+
+    if (resource === "Important Questions") {
+
+        alert(
+
+            "Important questions for " +
+
+            subject +
+
+            " will be uploaded soon."
+
+        );
+
+        return;
+
+    }
+
+
+    // ---------- VIDEO LECTURES ----------
+
+    if (resource === "Videos") {
+
+        alert(
+
+            "Video lectures for " +
+
+            subject +
+
+            " will be uploaded soon."
+
+        );
+
+        return;
+
+    }
+
+}
 
 
 // ---------- Fade Animation ----------
 
 const observer = new IntersectionObserver((entries) => {
 
+
     entries.forEach(entry => {
+
 
         if (entry.isIntersecting) {
 
+
             entry.target.style.opacity = "1";
 
+
             entry.target.style.transform = "translateY(0px)";
+
 
         }
 
@@ -257,62 +421,35 @@ const observer = new IntersectionObserver((entries) => {
 
 });
 
+
 document.querySelectorAll(".semester-card").forEach(card => {
+
 
     card.style.opacity = "0";
 
+
     card.style.transform = "translateY(40px)";
 
+
     card.style.transition = "0.6s";
+
 
     observer.observe(card);
 
 });
 
-// ---------- Console ----------
 
-function openResource(subject, resource) {
+// ---------- Get Access ----------
 
-    if (resource === "Notes") {
+function getAccess(subject) {
 
-        if (subject === "Digital Computer Organization") {
-
-            window.open(
-                "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
-                "_blank"
-            );
-
-        }
-
-        else if (subject === "Programming in C++") {
-
-    window.open(
-        "assets/programming-in-c++/notes.html",
-        "_blank"
-    );
-
-}
-
-        else {
-
-            alert("Notes will be uploaded soon.");
-
-        }
-
-    }
-
-    else {
-
-        alert(resource + " will be uploaded soon.");
-
-    }
-
-}
-function getAccess(subject){
 
     alert(
+
         "Opening all study resources for\n\n" +
+
         subject
+
     );
 
 }
