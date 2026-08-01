@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semester 3 Notes</title>
 
-    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../../style.css">
 </head>
 
 <body>
@@ -24,6 +24,30 @@
         </a>
 
     </div>
+<script>
+
+
+if(localStorage.getItem("theme")==="light"){
+
+    document.body.classList.add("light-mode");
+
+}
+
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (localStorage.getItem("theme") === "light") {
+
+        document.body.classList.add("light-mode");
+
+    }
+
+});
+
+</script>
 
 </body>
 

@@ -62,9 +62,9 @@ body{
 
 .logo img{
 
-    width:50px;
+    width:75px;
 
-    height:50px;
+    height:75px;
 
 }
 
@@ -562,45 +562,390 @@ padding:35px;
     background:#008cff;
     transform:translateY(-3px);
 }
-#themeToggle{
-    background:transparent;
-    border:none;
-    color:white;
-    font-size:22px;
-    cursor:pointer;
-    transition:.3s;
+/* ==========================================
+   PROFESSIONAL LIGHT & DARK THEME
+========================================== */
+
+
+
+body{
+    background:#0F172A;
+    color:#F8FAFC;
+    transition:.4s;
 }
 
-#themeToggle:hover{
-    transform:scale(1.2);
+.navbar,
+.semester-card,
+.subject-card,
+.paper-card,
+.notes-container,
+footer{
+    background:#172554;
+    color:#F8FAFC;
+    transition:.4s;
 }
-/* Light Mode */
+
+.hero{
+    background:
+    linear-gradient(rgba(15,23,42,.90),rgba(15,23,42,.90)),
+    url("images/hero-banner.png");
+    background-size:cover;
+    background-position:center;
+}
+
+.title,
+.hero h2,
+.about h2,
+.notes-container h1{
+    color:#38BDF8;
+}
+
+.hero button,
+.paper-card button,
+.notes-container a{
+    background:#38BDF8;
+    color:#0F172A;
+    font-weight:600;
+}
+
+.hero button:hover,
+.paper-card button:hover,
+.notes-container a:hover{
+    background:#0EA5E9;
+    transform:translateY(-3px);
+}
+
+.semester-card:hover,
+.subject-card:hover{
+    border:2px solid #38BDF8;
+    transform:translateY(-8px);
+}
+
+.navbar a{
+    color:#F8FAFC;
+}
+
+.navbar a:hover{
+    color:#38BDF8;
+}
+
+/* ==========================================================
+   GLOBAL PROFESSIONAL THEME SYSTEM
+   (Replace your old theme section with this)
+========================================================== */
+
+/* ===========================
+   DARK THEME (DEFAULT)
+=========================== */
+
+:root{
+
+    --bg-color:#0F172A;
+    --surface-color:#172554;
+    --surface-hover:#1E3A8A;
+
+    --text-color:#F8FAFC;
+    --heading-color:#F8FAFC;
+
+    --accent-color:#38BDF8;
+    --accent-hover:#0EA5E9;
+
+    --border-color:#38BDF8;
+
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   LIGHT THEME
+=========================== */
 
 body.light-mode{
-    background:#f5f5f5;
-    color:#222;
+
+    --bg-color:#F4F7F6;
+    --surface-color:#FFFFFF;
+    --surface-hover:#EDF7F5;
+
+    --text-color:#333333;
+    --heading-color:#1A1A1A;
+
+    --accent-color:#2A9D8F;
+    --accent-hover:#21867A;
+
+    --border-color:#2A9D8F;
+
+    --shadow:0 10px 25px rgba(0,0,0,.12);
+
 }
 
-body.light-mode .navbar,
-body.light-mode .semester-card,
-body.light-mode .subject-card,
-body.light-mode .paper-card,
-body.light-mode footer,
-body.light-mode .notes-container{
-    background:white;
-    color:#222;
+/* ===========================
+   GLOBAL BODY
+=========================== */
+
+body{
+
+    background:var(--bg-color);
+    color:var(--text-color);
+
+    transition:
+    background .35s ease,
+    color .35s ease;
+
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+    background:var(--surface-color);
+
+    transition:.35s;
+
+}
+
+.logo h2{
+
+    color:var(--heading-color);
+
+}
+
+.navbar ul li a{
+
+    color:var(--text-color);
+
+}
+
+.navbar ul li a:hover{
+
+    color:var(--accent-color);
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    background:
+
+    linear-gradient(
+        rgba(15,23,42,.88),
+        rgba(15,23,42,.88)
+    ),
+
+    url("images/background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
 }
 
 body.light-mode .hero{
-    background:#e8f4ff;
+
+    background:
+
+    linear-gradient(
+        rgba(244,247,246,.90),
+        rgba(244,247,246,.90)
+    ),
+
+    url("images/background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
 }
 
-body.light-mode .navbar a{
-    color:#222;
+.hero h2,
+.about h2,
+.title{
+
+    color:var(--accent-color);
+
 }
 
-body.light-mode .hero button,
-body.light-mode .paper-card button,
-body.light-mode .notes-container a{
-    background:#007bff;
+.about p{
+    max-width:900px;
+    margin:20px auto 0;
+    font-size:18px;
+    line-height:1.9;
+    text-align:center;
+}
+/* ===========================
+   CARDS
+=========================== */
+
+.semester-card,
+.subject-card,
+.paper-card,
+.notes-container,
+footer{
+
+    background:var(--surface-color);
+
+    color:var(--text-color);
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.semester-card:hover,
+.subject-card:hover{
+
+    background:var(--surface-hover);
+
+    border:2px solid var(--accent-color);
+
+}
+
+/* ===========================
+   NOTES PAGE
+=========================== */
+
+.notes-container{
+
+    border:2px solid var(--border-color);
+
+}
+
+.notes-container h1{
+
+    color:var(--accent-color);
+
+}
+
+.notes-subtitle{
+
+    color:var(--text-color);
+
+}
+
+.notes-container p,
+.notes-container h2,
+.notes-container h3,
+.notes-container span{
+
+    color:var(--text-color);
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.hero button,
+.paper-card button,
+.notes-container a,
+button{
+
+    background:var(--accent-color);
+
+    color:#ffffff;
+
+    border:none;
+
+    transition:.30s;
+
+}
+
+.hero button:hover,
+.paper-card button:hover,
+.notes-container a:hover,
+button:hover{
+
+    background:var(--accent-hover);
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   PDF VIEWER
+=========================== */
+
+iframe,
+embed,
+object{
+
+    background:#ffffff;
+
+    border-radius:12px;
+
+    border:2px solid var(--border-color);
+
+}
+
+/* ===========================
+   LINKS
+=========================== */
+
+a{
+
+    transition:.3s;
+
+}
+
+a:hover{
+
+    color:var(--accent-color);
+
+}
+
+/* ===========================
+   THEME TOGGLE BUTTON
+=========================== */
+
+#themeToggle{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:var(--accent-color);
+
+    color:#fff;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+#themeToggle:hover{
+
+    background:var(--accent-hover);
+
+    transform:rotate(180deg);
+
+}
+
+/* ===========================
+   SMOOTH TRANSITIONS
+=========================== */
+
+*{
+
+    transition:
+
+    background-color .35s ease,
+
+    color .35s ease,
+
+    border-color .35s ease,
+
+    box-shadow .35s ease;
+
 }

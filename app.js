@@ -452,20 +452,56 @@ function getAccess(subject) {
     );
 
 }
-// =======================
-// LIGHT / DARK MODE
-// =======================
+// ===============================
+// LIGHT / DARK THEME
+// ===============================
 
 const themeToggle = document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    document.body.classList.toggle("light-mode");
+    const savedTheme = localStorage.getItem("theme");
 
-    if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = "☀️";
-    }else{
-        themeToggle.innerHTML = "🌙";
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light-mode");
+
+        if (themeToggle) {
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+
+    } else {
+
+        document.body.classList.remove("light-mode");
+
+        if (themeToggle) {
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+
     }
 
 });
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+
+            localStorage.setItem("theme", "light");
+
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+
+        }
+
+    });
+
+}
