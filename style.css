@@ -123,7 +123,7 @@ body{
     padding:20px;
 
     background:linear-gradient(rgba(8,27,41,.92),rgba(8,27,41,.92)),
-    url("images/hero-banner.png");
+    url("images/background.png");
 
     background-size:cover;
 
@@ -561,4 +561,46 @@ padding:35px;
 .notes-container a:hover{
     background:#008cff;
     transform:translateY(-3px);
+}
+#themeToggle{
+    background:transparent;
+    border:none;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#themeToggle:hover{
+    transform:scale(1.2);
+}
+/* Light Mode */
+
+body.light-mode{
+    background:#f5f5f5;
+    color:#222;
+}
+
+body.light-mode .navbar,
+body.light-mode .semester-card,
+body.light-mode .subject-card,
+body.light-mode .paper-card,
+body.light-mode footer,
+body.light-mode .notes-container{
+    background:white;
+    color:#222;
+}
+
+body.light-mode .hero{
+    background:#e8f4ff;
+}
+
+body.light-mode .navbar a{
+    color:#222;
+}
+
+body.light-mode .hero button,
+body.light-mode .paper-card button,
+body.light-mode .notes-container a{
+    background:#007bff;
 }

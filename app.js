@@ -230,11 +230,8 @@ function loadQuestionPapers(subject, semester) {
 
 function openResource(subject, resource, semester) {
 
-
-    // ---------- SYLLABUS ----------
-
 // ---------- SYLLABUS ----------
-
+//alert(subject + " | " + semester + " | " + resource);
 if (resource === "Syllabus") {
 
     if (semester === "1") {
@@ -455,3 +452,20 @@ function getAccess(subject) {
     );
 
 }
+// =======================
+// LIGHT / DARK MODE
+// =======================
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
+        themeToggle.innerHTML = "☀️";
+    }else{
+        themeToggle.innerHTML = "🌙";
+    }
+
+});
