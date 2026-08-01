@@ -322,6 +322,18 @@ if (resource === "Notes") {
     );
     return;
 }
+if (
+    semester === "3" &&
+    subject === "Web Technology"
+) {
+
+    window.open(
+        "assets/notes/semester3/notes.html",
+        "_blank"
+    );
+
+    return;
+}
 
     alert("Notes will be uploaded soon.");
     return;
