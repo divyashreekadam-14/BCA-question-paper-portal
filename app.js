@@ -233,134 +233,100 @@ function openResource(subject, resource, semester) {
 
     // ---------- SYLLABUS ----------
 
-   // ---------- SYLLABUS ----------
+// ---------- SYLLABUS ----------
 
 if (resource === "Syllabus") {
 
-    // Semester 1
     if (semester === "1") {
-
-        window.open(
-            "assets/notes/semester1/semester1-syllabus.pdf",
-            "_blank"
-        );
-
+        window.open("assets/notes/semester1/semester1-syllabus.pdf", "_blank");
         return;
     }
 
-    // Semester 2
     if (semester === "2") {
-
-        window.open(
-            "assets/notes/semester2/semester2-syllabus.pdf",
-            "_blank"
-        );
-
+        window.open("assets/notes/semester2/semester2-syllabus.pdf", "_blank");
         return;
     }
 
-    // Semester 3
     if (semester === "3") {
-
-        window.open(
-            "assets/notes/semester3/semester3-syllabus.pdf",
-            "_blank"
-        );
-
+        window.open("assets/notes/semester3/semester3-syllabus.pdf", "_blank");
         return;
     }
 
-    // Semester 4
     if (semester === "4") {
-
-        window.open(
-            "assets/notes/semester4/semester4-syllabus.pdf",
-            "_blank"
-        );
-
+        window.open("assets/notes/semester4/semester4-syllabus.pdf", "_blank");
         return;
     }
 
-    // Semester 5 & 6
-    alert(
-        "Syllabus is not available yet for Semester " + semester
-    );
+    if (semester === "5") {
+        window.open("assets/notes/semester5/semester5-syllabus.pdf", "_blank");
+        return;
+    }
 
+    if (semester === "6") {
+        window.open("assets/notes/semester6/semester6-syllabus.pdf", "_blank");
+        return;
+    }
+
+    alert("Syllabus is not available yet.");
     return;
 }
-
 
     // ---------- NOTES ----------
 
-    if (resource === "Notes") {
+if (resource === "Notes") {
 
+    if (semester === "1" &&
+        subject === "Digital Computer Organization") {
 
-        if (
+        window.open(
+            "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
+            "_blank"
+        );
+        return;
+    }
 
-            semester === "1" &&
+    if (semester === "1" &&
+        subject === "Programming in C++") {
 
-            subject === "Digital Computer Organization"
+        window.open(
+            "assets/programming-in-c++/notes.html",
+            "_blank"
+        );
+        return;
+    }
 
-        ) {
+    // Semester 5
+    if (semester === "5") {
+        window.open(
+            "assets/notes/semester5/notes.html",
+            "_blank"
+        );
+        return;
+    }
 
-            window.open(
-
-                "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
-
-                "_blank"
-
-            );
-
-            return;
-
-        }
-
-
-        if (
-
-            semester === "1" &&
-
-            subject === "Programming in C++"
-
-        ) {
-
-            window.open(
-
-                "assets/programming-in-c++/notes.html",
-
-                "_blank"
-
-            );
-
-            return;
-
-        }
-        if (
-
+    // Semester 6
+    if (semester === "6") {
+        window.open(
+            "assets/notes/semester6/notes.html",
+            "_blank"
+        );
+        return;
+    }
+    if (
     semester === "2" &&
-
     subject === "Operating System"
-
 ) {
-
     window.open(
-
         "assets/notes/semester2/notes.html",
-
         "_blank"
-
     );
-
     return;
-
 }
 
-
-        alert("Notes will be uploaded soon.");
-
-        return;
-
-    }
+    alert("Notes will be uploaded soon.");
+    return;
+}
+        
 
 
     // ---------- PREVIOUS PAPERS ----------
