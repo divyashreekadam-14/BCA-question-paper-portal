@@ -1,42 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
 
-<link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="auth.css" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <div class="auth-container">
+      <img src="images/logo.png" class="logo" />
 
-<div class="auth-container">
+      <h2>University of Mysore</h2>
 
-<img src="images/logo.png" class="logo">
+      <h3>BCA Student Portal</h3>
 
-<h2>University of Mysore</h2>
+      <input type="email" id="email" placeholder="Email Address" />
 
-<h3>BCA Student Portal</h3>
+      <input type="password" id="password" placeholder="Password" />
 
-<input type="email" id="email" placeholder="Email Address">
+      <button onclick="login()">Login</button>
 
-<input type="password" id="password" placeholder="Password">
+      <p>
+        Don't have an account?
 
-<button onclick="login()">Login</button>
+        <a href="signup.html">Sign Up</a>
+      </p>
+    </div>
 
-<p>
-
-Don't have an account?
-
-<a href="signup.html">Sign Up</a>
-
-</p>
-
-</div>
-
-<script src="auth.js"></script>
-
-</body>
+    <script src="auth.js"></script>
+  </body>
 </html>

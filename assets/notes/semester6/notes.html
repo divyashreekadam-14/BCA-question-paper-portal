@@ -1,49 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semester 6 Notes</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 6 Notes</title>
 
-<link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
 
-</head>
+  <body>
+    <div class="notes-container">
+      <h1>Semester 6 Notes</h1>
 
-<body>
+      <p class="notes-subtitle">Choose a subject.</p>
 
-<div class="notes-container">
+      <a href="#">Machine Learning</a>
 
-<h1>Semester 6 Notes</h1>
+      <a href="#">Data Analytics</a>
 
-<p class="notes-subtitle">
-Choose a subject.
-</p>
+      <a href="#">Mobile Application Development</a>
 
-<a href="#">Machine Learning</a>
+      <a href="#">IoT</a>
 
-<a href="#">Data Analytics</a>
+      <a href="#">Internship</a>
 
-<a href="#">Mobile Application Development</a>
-
-<a href="#">IoT</a>
-
-<a href="#">Internship</a>
-
-<a href="#">Major Project</a>
-
-</div>
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (localStorage.getItem("theme") === "light") {
-
-        document.body.classList.add("light-mode");
-
-    }
-
-});
-
-</script>
-</body>
+      <a href="#">Major Project</a>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      });
+    </script>
+  </body>
 </html>

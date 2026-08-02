@@ -3,95 +3,85 @@
 // app.js
 // ================================
 
-
 // ---------- Get Started Button ----------
 
 const startBtn = document.getElementById("startBtn");
 
 if (startBtn) {
-    startBtn.addEventListener("click", () => {
-
-        document.getElementById("semester").scrollIntoView({
-            behavior: "smooth"
-        });
-
+  startBtn.addEventListener("click", () => {
+    document.getElementById("semester").scrollIntoView({
+      behavior: "smooth",
     });
+  });
 }
-
 
 // ---------- Subject Data ----------
 
 const semesterSubjects = {
+  1: [
+    "Programming in C++",
+    "Mathematical and statistical reasoning",
+    "Digital Computer Organization",
+    "English",
+    "Kannada",
+    "Indian constituition",
+  ],
 
-    1: [
-        "Programming in C++",
-        "Mathematical and statistical reasoning",
-        "Digital Computer Organization",
-        "English",
-        "Kannada",
-        "Indian constituition"
-    ],
+  2: [
+    "Data Structures",
+    "Operating System",
+    "Environmental Studies",
+    "kannada",
+    "English ",
+    "Programming in Java",
+  ],
 
-    2: [
-        "Data Structures",
-        "Operating System",
-        "Environmental Studies",
-        "kannada",
-        "English ",
-        "Programming in Java"
-    ],
+  3: [
+    "C#",
+    "DBMS",
+    "kannada",
+    "English",
+    "Software Engineering",
+    "E-Commerce and E-Governance",
+    "Web Technology",
+  ],
 
-    3: [
-        "C#",
-        "DBMS",
-        "kannada",
-        "English",
-        "Software Engineering",
-        "E-Commerce and E-Governance",
-        "Web Technology"
-    ],
+  4: [
+    "Operating System",
+    "Java Programming",
+    "DBMS",
+    "Computer Networks",
+    "Python",
+    "Software Engineering",
+    "Web Technology",
+  ],
 
-    4: [
-        "Operating System",
-        "Java Programming",
-        "DBMS",
-        "Computer Networks",
-        "Python",
-        "Software Engineering",
-        "Web Technology"
-    ],
+  5: [
+    "PHP",
+    "Computer Graphics",
+    "Cloud Computing",
+    "Cyber Security",
+    "AI Basics",
+    "Project Work",
+  ],
 
-    5: [
-        "PHP",
-        "Computer Graphics",
-        "Cloud Computing",
-        "Cyber Security",
-        "AI Basics",
-        "Project Work"
-    ],
-
-    6: [
-        "Machine Learning",
-        "Data Analytics",
-        "Mobile Application Development",
-        "IoT",
-        "Internship",
-        "Major Project"
-    ]
-
+  6: [
+    "Machine Learning",
+    "Data Analytics",
+    "Mobile Application Development",
+    "IoT",
+    "Internship",
+    "Major Project",
+  ],
 };
-
 
 // ---------- Question Paper Years ----------
 
 const paperYears = [
-
-    "2025 Question Paper",
-    "2024 Question Paper",
-    "2023 Question Paper"
-
+  "2025 Question Paper",
+  "2024 Question Paper",
+  "2023 Question Paper",
 ];
-
 
 // ---------- Semester Click ----------
 
@@ -101,92 +91,62 @@ const subjectContainer = document.getElementById("subjectContainer");
 
 const paperContainer = document.getElementById("paperContainer");
 
+semesterCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const semester = card.dataset.sem;
 
-semesterCards.forEach(card => {
-
-    card.addEventListener("click", () => {
-
-        const semester = card.dataset.sem;
-
-        loadSubjects(semester);
-
-    });
-
+    loadSubjects(semester);
+  });
 });
-
 
 // ---------- Load Subjects ----------
 
 function loadSubjects(semester) {
+  subjectContainer.innerHTML = "";
 
-    subjectContainer.innerHTML = "";
+  paperContainer.innerHTML = "<p>Select Subject First</p>";
 
-    paperContainer.innerHTML = "<p>Select Subject First</p>";
+  semesterSubjects[semester].forEach((subject) => {
+    const div = document.createElement("div");
 
+    div.className = "subject-card";
 
-    semesterSubjects[semester].forEach(subject => {
+    div.innerHTML = `<h3>${subject}</h3>`;
 
-        const div = document.createElement("div");
+    div.addEventListener("click", () => {
+      loadQuestionPapers(subject, semester);
 
-        div.className = "subject-card";
+      setTimeout(() => {
+        document.getElementById("papers").scrollIntoView({
+          behavior: "smooth",
 
-        div.innerHTML = `<h3>${subject}</h3>`;
-
-
-        div.addEventListener("click", () => {
-
-            loadQuestionPapers(subject, semester);
-
-
-            setTimeout(() => {
-
-                document.getElementById("papers").scrollIntoView({
-
-                    behavior: "smooth",
-
-                    block: "start"
-
-                });
-
-            }, 100);
-
+          block: "start",
         });
-
-
-        subjectContainer.appendChild(div);
-
+      }, 100);
     });
 
+    subjectContainer.appendChild(div);
+  });
 
-    setTimeout(() => {
+  setTimeout(() => {
+    document.getElementById("subjects").scrollIntoView({
+      behavior: "smooth",
 
-        document.getElementById("subjects").scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
-
-        });
-
-    }, 100);
-
+      block: "start",
+    });
+  }, 100);
 }
-
 
 // ---------- Load Subject Resources ----------
 
 function loadQuestionPapers(subject, semester) {
+  paperContainer.innerHTML = "";
 
+  const paper = document.createElement("div");
 
-    paperContainer.innerHTML = "";
+  paper.className = "paper-card";
 
-
-    const paper = document.createElement("div");
-
-    paper.className = "paper-card";
-
-
-    paper.innerHTML = `
+  paper.innerHTML = `
 
         <h2>${subject}</h2>
 
@@ -220,237 +180,141 @@ function loadQuestionPapers(subject, semester) {
 
     `;
 
-
-    paperContainer.appendChild(paper);
-
+  paperContainer.appendChild(paper);
 }
-
 
 // ---------- Open Resources ----------
 
 function openResource(subject, resource, semester) {
-
-// ---------- SYLLABUS ----------
-//alert(subject + " | " + semester + " | " + resource);
-if (resource === "Syllabus") {
-
+  // ---------- SYLLABUS ----------
+  //alert(subject + " | " + semester + " | " + resource);
+  if (resource === "Syllabus") {
     if (semester === "1") {
-        window.open("assets/notes/semester1/semester1-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester1/semester1-syllabus.pdf", "_blank");
+      return;
     }
 
     if (semester === "2") {
-        window.open("assets/notes/semester2/semester2-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester2/semester2-syllabus.pdf", "_blank");
+      return;
     }
 
     if (semester === "3") {
-        window.open("assets/notes/semester3/semester3-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester3/semester3-syllabus.pdf", "_blank");
+      return;
     }
 
     if (semester === "4") {
-        window.open("assets/notes/semester4/semester4-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester4/semester4-syllabus.pdf", "_blank");
+      return;
     }
 
     if (semester === "5") {
-        window.open("assets/notes/semester5/semester5-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester5/semester5-syllabus.pdf", "_blank");
+      return;
     }
 
     if (semester === "6") {
-        window.open("assets/notes/semester6/semester6-syllabus.pdf", "_blank");
-        return;
+      window.open("assets/notes/semester6/semester6-syllabus.pdf", "_blank");
+      return;
     }
 
     alert("Syllabus is not available yet.");
     return;
-}
+  }
 
-    // ---------- NOTES ----------
+  // ---------- NOTES ----------
 
-if (resource === "Notes") {
-
-    if (semester === "1" &&
-        subject === "Digital Computer Organization") {
-
-        window.open(
-            "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
-            "_blank"
-        );
-        return;
+  if (resource === "Notes") {
+    if (semester === "1" && subject === "Digital Computer Organization") {
+      window.open(
+        "assets/notes/semester1/Digital%20computer%20organization%20notes/notes.html",
+        "_blank",
+      );
+      return;
     }
 
-    if (semester === "1" &&
-        subject === "Programming in C++") {
-
-        window.open(
-            "assets/programming-in-c++/notes.html",
-            "_blank"
-        );
-        return;
+    if (semester === "1" && subject === "Programming in C++") {
+      window.open("assets/programming-in-c++/notes.html", "_blank");
+      return;
     }
 
     // Semester 5
     if (semester === "5") {
-        window.open(
-            "assets/notes/semester5/notes.html",
-            "_blank"
-        );
-        return;
+      window.open("assets/notes/semester5/notes.html", "_blank");
+      return;
     }
 
     // Semester 6
     if (semester === "6") {
-        window.open(
-            "assets/notes/semester6/notes.html",
-            "_blank"
-        );
-        return;
+      window.open("assets/notes/semester6/notes.html", "_blank");
+      return;
     }
-    if (
-    semester === "2" &&
-    subject === "Operating System"
-) {
-    window.open(
-        "assets/notes/semester2/notes.html",
-        "_blank"
-    );
-    return;
-}
-if (
-    semester === "3" &&
-    subject === "Web Technology"
-) {
+    if (semester === "2" && subject === "Operating System") {
+      window.open("assets/notes/semester2/notes.html", "_blank");
+      return;
+    }
+    if (semester === "3" && subject === "Web Technology") {
+      window.open("assets/notes/semester3/notes.html", "_blank");
 
-    window.open(
-        "assets/notes/semester3/notes.html",
-        "_blank"
-    );
-
-    return;
-}
+      return;
+    }
 
     alert("Notes will be uploaded soon.");
     return;
+  }
+
+  // ---------- PREVIOUS PAPERS ----------
+
+  if (resource === "Question Papers") {
+    alert("Previous papers for " + subject + " will be uploaded soon.");
+
+    return;
+  }
+
+  // ---------- IMPORTANT QUESTIONS ----------
+
+  if (resource === "Important Questions") {
+    alert("Important questions for " + subject + " will be uploaded soon.");
+
+    return;
+  }
+
+  // ---------- VIDEO LECTURES ----------
+
+  if (resource === "Videos") {
+    alert("Video lectures for " + subject + " will be uploaded soon.");
+
+    return;
+  }
 }
-        
-
-
-    // ---------- PREVIOUS PAPERS ----------
-
-    if (resource === "Question Papers") {
-
-        alert(
-
-            "Previous papers for " +
-
-            subject +
-
-            " will be uploaded soon."
-
-        );
-
-        return;
-
-    }
-
-
-    // ---------- IMPORTANT QUESTIONS ----------
-
-    if (resource === "Important Questions") {
-
-        alert(
-
-            "Important questions for " +
-
-            subject +
-
-            " will be uploaded soon."
-
-        );
-
-        return;
-
-    }
-
-
-    // ---------- VIDEO LECTURES ----------
-
-    if (resource === "Videos") {
-
-        alert(
-
-            "Video lectures for " +
-
-            subject +
-
-            " will be uploaded soon."
-
-        );
-
-        return;
-
-    }
-
-}
-
 
 // ---------- Fade Animation ----------
 
 const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
 
-
-    entries.forEach(entry => {
-
-
-        if (entry.isIntersecting) {
-
-
-            entry.target.style.opacity = "1";
-
-
-            entry.target.style.transform = "translateY(0px)";
-
-
-        }
-
-    });
-
+      entry.target.style.transform = "translateY(0px)";
+    }
+  });
 });
 
+document.querySelectorAll(".semester-card").forEach((card) => {
+  card.style.opacity = "0";
 
-document.querySelectorAll(".semester-card").forEach(card => {
+  card.style.transform = "translateY(40px)";
 
+  card.style.transition = "0.6s";
 
-    card.style.opacity = "0";
-
-
-    card.style.transform = "translateY(40px)";
-
-
-    card.style.transition = "0.6s";
-
-
-    observer.observe(card);
-
+  observer.observe(card);
 });
-
 
 // ---------- Get Access ----------
 
 function getAccess(subject) {
-
-
-    alert(
-
-        "Opening all study resources for\n\n" +
-
-        subject
-
-    );
-
+  alert("Opening all study resources for\n\n" + subject);
 }
 // ===============================
 // LIGHT / DARK THEME
@@ -459,49 +323,35 @@ function getAccess(subject) {
 const themeToggle = document.getElementById("themeToggle");
 
 document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
 
-    const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
 
-    if (savedTheme === "light") {
-
-        document.body.classList.add("light-mode");
-
-        if (themeToggle) {
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        }
-
-    } else {
-
-        document.body.classList.remove("light-mode");
-
-        if (themeToggle) {
-            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        }
-
+    if (themeToggle) {
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
+  } else {
+    document.body.classList.remove("light-mode");
 
+    if (themeToggle) {
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+  }
 });
 
 if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 
-    themeToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
 
-        document.body.classList.toggle("light-mode");
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+      localStorage.setItem("theme", "dark");
 
-        if (document.body.classList.contains("light-mode")) {
-
-            localStorage.setItem("theme", "light");
-
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-
-        } else {
-
-            localStorage.setItem("theme", "dark");
-
-            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-
-        }
-
-    });
-
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+  });
 }

@@ -1,88 +1,76 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
 }
 
-body{
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-background:#081b29;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #081b29;
 }
 
-.auth-container{
+.auth-container {
+  width: 360px;
 
-width:360px;
+  background: white;
 
-background:white;
+  padding: 35px;
 
-padding:35px;
+  border-radius: 12px;
 
-border-radius:12px;
+  text-align: center;
 
-text-align:center;
-
-box-shadow:0 0 20px rgba(0,0,0,.3);
-
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.logo{
+.logo {
+  width: 80px;
 
-width:80px;
-
-margin-bottom:15px;
-
+  margin-bottom: 15px;
 }
 
-input{
+input {
+  width: 100%;
 
-width:100%;
+  padding: 12px;
 
-padding:12px;
+  margin: 10px 0;
 
-margin:10px 0;
+  border-radius: 8px;
 
-border-radius:8px;
-
-border:1px solid #ccc;
-
+  border: 1px solid #ccc;
 }
 
-button{
+button {
+  width: 100%;
 
-width:100%;
+  padding: 12px;
 
-padding:12px;
+  background: #0066cc;
 
-background:#0066cc;
+  color: white;
 
-color:white;
+  border: none;
 
-border:none;
+  border-radius: 8px;
 
-border-radius:8px;
+  cursor: pointer;
 
-cursor:pointer;
-
-font-size:16px;
-
+  font-size: 16px;
 }
 
-button:hover{
-
-background:#004d99;
-
+button:hover {
+  background: #004d99;
 }
 
-a{
+a {
+  text-decoration: none;
 
-text-decoration:none;
+  color: #0066cc;
 
-color:#0066cc;
-
-font-weight:600;
-
+  font-weight: 600;
 }

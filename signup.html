@@ -1,48 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
 
-<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
 
-<title>Sign Up</title>
+    <link rel="stylesheet" href="auth.css" />
 
-<link rel="stylesheet" href="auth.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <body>
+    <div class="auth-container">
+      <img src="images/logo.png" class="logo" />
 
-</head>
+      <h2>University of Mysore</h2>
 
-<body>
+      <h3>Create Account</h3>
 
-<div class="auth-container">
+      <input type="text" id="name" placeholder="Full Name" />
 
-<img src="images/logo.png" class="logo">
+      <input type="email" id="email" placeholder="Email Address" />
 
-<h2>University of Mysore</h2>
+      <input type="password" id="password" placeholder="Password" />
 
-<h3>Create Account</h3>
+      <button onclick="signup()">Create Account</button>
 
-<input type="text" id="name" placeholder="Full Name">
+      <p>
+        Already have an account?
 
-<input type="email" id="email" placeholder="Email Address">
+        <a href="login.html">Login</a>
+      </p>
+    </div>
 
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="signup()">Create Account</button>
-
-<p>
-
-Already have an account?
-
-<a href="login.html">Login</a>
-
-</p>
-
-</div>
-
-<script src="auth.js"></script>
-
-</body>
+    <script src="auth.js"></script>
+  </body>
 </html>

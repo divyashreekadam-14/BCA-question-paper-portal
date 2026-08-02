@@ -1,54 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Semester 3 Notes</title>
 
-    <link rel="stylesheet" href="../../../../style.css">
-</head>
+    <link rel="stylesheet" href="../../../../style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="notes-container">
+      <h1>Semester 3 Notes</h1>
 
-        <h1>Semester 3 Notes</h1>
+      <p class="notes-subtitle">Web Technology</p>
 
-        <p class="notes-subtitle">
-            Web Technology
-        </p>
-
-        <a href="Web%20Technology/Unit1_WT.pdf" target="_blank">
-    Unit 1
-        </a>
-
+      <a href="Web%20Technology/Unit1_WT.pdf" target="_blank"> Unit 1 </a>
     </div>
-<script>
-
-
-if(localStorage.getItem("theme")==="light"){
-
-    document.body.classList.add("light-mode");
-
-}
-
-
-</script>
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (localStorage.getItem("theme") === "light") {
-
+    <script>
+      if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
-
-    }
-
-});
-
-</script>
-
-</body>
-
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      });
+    </script>
+  </body>
 </html>
